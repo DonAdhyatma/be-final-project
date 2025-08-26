@@ -1,7 +1,7 @@
-prisma/migrations
-echo "node_modules/
+node_modules/
 .env
 .env.local
 generated/
+prisma/migrations
 uploads/*
-!uploads/.gitkeep" > .gitignore
+!uploads/.gitkeep
