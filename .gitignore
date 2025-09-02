@@ -5,3 +5,5 @@ generated/
 prisma/migrations
 uploads/*
 !uploads/.gitkeep
+/src/generated/prisma
+/src/config
