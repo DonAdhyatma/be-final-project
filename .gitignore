@@ -7,3 +7,4 @@ uploads/*
 !uploads/.gitkeep
 /src/generated/prisma
 /src/config
+backup_20250902_164141.sql

@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -15,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id        BigInt   @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   username  String   @unique
   email     String   @unique
   password  String
@@ -35,7 +29,7 @@ model User {
 }
 
 model MenuItem {
-  id          BigInt     @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
   category    Category
   price       Decimal    @db.Decimal(10, 2)
@@ -55,7 +49,7 @@ model MenuItem {
 }
 
 model Order {
-  id           BigInt      @id @default(autoincrement())
+  id           Int         @id @default(autoincrement())
   orderNumber  String      @unique @map("order_number")
   customerName String      @map("customer_name")
   tableNumber  Int?        @map("table_number")
@@ -65,7 +59,7 @@ model Order {
   total        Decimal     @db.Decimal(10, 2)
   amountPaid   Decimal     @db.Decimal(10, 2) @map("amount_paid")
   changeAmount Decimal     @db.Decimal(10, 2) @map("change_amount")
-  createdBy    BigInt      @map("created_by")
+  createdBy    Int         @map("created_by")
   createdAt    DateTime    @default(now()) @map("created_at")
 
   // Relations
@@ -81,9 +75,9 @@ model Order {
 }
 
 model OrderItem {
-  id             BigInt  @id @default(autoincrement())
-  orderId        BigInt  @map("order_id")
-  menuItemId     BigInt  @map("menu_item_id")
+  id             Int     @id @default(autoincrement())
+  orderId        Int     @map("order_id")
+  menuItemId     Int     @map("menu_item_id")
   menuItemName   String  @map("menu_item_name")
   menuItemPrice  Decimal @db.Decimal(10, 2) @map("menu_item_price")
   quantity       Int
